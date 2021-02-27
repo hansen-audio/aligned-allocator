@@ -12,7 +12,10 @@ namespace ha {
 namespace memory {
 
 //-----------------------------------------------------------------------------
-// https://en.cppreference.com/w/cpp/named_req/Allocator
+/* https://en.cppreference.com/w/cpp/named_req/Allocator
+ * https://en.cppreference.com/w/cpp/memory/allocator
+ *
+ */
 //-----------------------------------------------------------------------------
 template <typename T>
 struct aligned_allocator
@@ -20,10 +23,6 @@ struct aligned_allocator
     typedef T value_type;
     typedef size_t size_type;
     typedef ptrdiff_t difference_type;
-    typedef T* pointer;
-    typedef const T* const_pointer;
-    typedef T& reference;
-    typedef const T& const_reference;
 
     // rebind allocator to type U
     template <class U>
