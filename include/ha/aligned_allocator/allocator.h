@@ -17,7 +17,7 @@ namespace memory {
  *
  */
 //-----------------------------------------------------------------------------
-template <typename T>
+template <typename T, int BYTE_ALIGNMENT>
 struct aligned_allocator
 {
     typedef T value_type;
@@ -28,12 +28,12 @@ struct aligned_allocator
     template <class U>
     struct rebind
     {
-        typedef aligned_allocator<U> other;
+        typedef aligned_allocator<U, BYTE_ALIGNMENT> other;
     };
 
     aligned_allocator() = default;
     template <class U>
-    constexpr aligned_allocator(const aligned_allocator<U>&) noexcept
+    constexpr aligned_allocator(const aligned_allocator<U, BYTE_ALIGNMENT>&) noexcept
     {
     }
 
@@ -42,8 +42,7 @@ struct aligned_allocator
         if (n > std::numeric_limits<std::size_t>::max() / sizeof(T))
             throw std::bad_alloc();
 
-        if (auto p = static_cast<T*>(std::aligned_alloc(16, n * sizeof(T))))
-        // if (auto p = static_cast<T*>(std::malloc(n * sizeof(T))))
+        if (auto p = static_cast<T*>(std::aligned_alloc(BYTE_ALIGNMENT, n * sizeof(T))))
         {
             report(p, n);
             return p;
@@ -66,13 +65,15 @@ private:
     }
 };
 
-template <class T, class U>
-bool operator==(const aligned_allocator<T>&, const aligned_allocator<U>&)
+template <class T, class U, int BYTE_ALIGNMENT>
+bool operator==(const aligned_allocator<T, BYTE_ALIGNMENT>&,
+                const aligned_allocator<U, BYTE_ALIGNMENT>&)
 {
     return true;
 }
-template <class T, class U>
-bool operator!=(const aligned_allocator<T>&, const aligned_allocator<U>&)
+template <class T, class U, int BYTE_ALIGNMENT>
+bool operator!=(const aligned_allocator<T, BYTE_ALIGNMENT>&,
+                const aligned_allocator<U, BYTE_ALIGNMENT>&)
 {
     return false;
 }

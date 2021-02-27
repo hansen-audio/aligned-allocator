@@ -8,7 +8,7 @@ using namespace ha::memory;
 
 namespace {
 
-using vector_r16b = std::vector<float, aligned_allocator<float>>;
+using vector_r16b = std::vector<float, aligned_allocator<float, 16>>;
 
 //-----------------------------------------------------------------------------
 TEST(aligned_allocator_test, test_vector)
