@@ -1,5 +1,5 @@
 # Aligned Allocator
-[![Linux Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_linux.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_linux.yml) [![macOS Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_macos.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_macos.yml)
+[![Linux Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_linux.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_linux.yml) [![macOS Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_macos.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_macos.yml) [![Windows Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_windows.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_windows.yml)
 
 
 ## License
