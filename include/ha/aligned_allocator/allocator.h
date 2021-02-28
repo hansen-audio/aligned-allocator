@@ -61,11 +61,13 @@ struct aligned_allocator
 #endif
         {
 #if defined(__APPLE__)
-            resport(static_cast<T*>(p), n);
+            auto pT = static_cast<T*>(p);
+            resport(pT, n);
+            return pT;
 #else
             report(p, n);
-#endif
             return p;
+#endif
         }
 
         throw std::bad_alloc();
