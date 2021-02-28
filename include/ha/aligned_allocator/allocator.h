@@ -22,7 +22,7 @@ namespace alignment {
 //-----------------------------------------------------------------------------
 /* https://en.cppreference.com/w/cpp/named_req/Allocator
  * https://en.cppreference.com/w/cpp/memory/allocator
- *
+ * https://github.com/boostorg/align/tree/develop/include/boost/align/detail
  */
 //-----------------------------------------------------------------------------
 template <typename T, int BYTE_ALIGNMENT>
@@ -54,7 +54,8 @@ struct aligned_allocator
 #if defined(_WIN32)
         if (auto p = static_cast<T*>(_aligned_malloc(n * sizeof(T), BYTE_ALIGNMENT)))
 #elif __APPLE__
-        if (auto p = ::posix_memalign(&p, BYTE_ALIGNMENT, n * sizeof(T)) != 0)
+        void* p = nullptr;
+        if (::posix_memalign(&p, BYTE_ALIGNMENT, n * sizeof(T)) != 0)
         {
             p = 0;
         }
