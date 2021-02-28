@@ -62,7 +62,7 @@ struct aligned_allocator
         {
 #if defined(__APPLE__)
             auto pT = static_cast<T*>(p);
-            resport(pT, n);
+            report(pT, n);
             return pT;
 #else
             report(p, n);
