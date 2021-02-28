@@ -26,7 +26,7 @@ namespace alignment {
  * https://github.com/boostorg/align/tree/develop/include/boost/align/detail
  */
 //-----------------------------------------------------------------------------
-template <typename T, int BYTE_ALIGNMENT>
+template <typename T, std::size_t BYTE_ALIGNMENT>
 struct aligned_allocator
 {
     typedef T value_type;
@@ -94,13 +94,13 @@ private:
     }
 };
 
-template <class T, class U, int BYTE_ALIGNMENT>
+template <class T, class U, std::size_t BYTE_ALIGNMENT>
 bool operator==(const aligned_allocator<T, BYTE_ALIGNMENT>&,
                 const aligned_allocator<U, BYTE_ALIGNMENT>&)
 {
     return true;
 }
-template <class T, class U, int BYTE_ALIGNMENT>
+template <class T, class U, std::size_t BYTE_ALIGNMENT>
 bool operator!=(const aligned_allocator<T, BYTE_ALIGNMENT>&,
                 const aligned_allocator<U, BYTE_ALIGNMENT>&)
 {
