@@ -2,10 +2,10 @@
 
 #pragma once
 
+#include <cstdlib>
 #include <iostream>
 #include <limits>
 #include <new>
-#include <stdlib.h>
 #include <vector>
 
 namespace ha {
