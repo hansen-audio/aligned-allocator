@@ -54,7 +54,7 @@ struct aligned_allocator
 #if defined(_WIN32)
         if (auto p = static_cast<T*>(_aligned_malloc(n * sizeof(T), BYTE_ALIGNMENT)))
 #elif __APPLE__
-        if (::posix_memalign(&p, BYTE_ALIGNMENT, n * sizeof(T)) != 0)
+        if (auto p = ::posix_memalign(&p, BYTE_ALIGNMENT, n * sizeof(T)) != 0)
         {
             p = 0;
         }
