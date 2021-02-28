@@ -1,6 +1,19 @@
 # Aligned Allocator
 [![Linux Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_linux.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_linux.yml) [![macOS Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_macos.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_macos.yml) [![Windows Build](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_windows.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake_windows.yml)
 
+## Motivation
+
+This is an attempt to build a very lightweight allocator for STL containers like ```std::vector```, which can allocate memory aligned. With the introduction of ```std::aligned_alloc``` in ```c++17``` there is a cross platform solution. To date it seems as if if this is not supported yet on all platforms.
+
+Therefore I took a look into Boost align library and "copied" the MSVS and macOS parts until ```std::aligned_alloc``` is available on these platforms as well.
+
+> This is the first attempt to build a STL compatible allocator. There are unit tests avaiable. Nevertheless, be carefull when using this allocator!!!
+
+## Links
+
+[https://en.cppreference.com/w/cpp/named_req/Allocator](https://en.cppreference.com/w/cpp/named_req/Allocator)
+[https://en.cppreference.com/w/cpp/memory/allocator](https://en.cppreference.com/w/cpp/memory/allocator)
+[https://github.com/boostorg/align/tree/develop/include/boost/align/detail](https://github.com/boostorg/align/tree/develop/include/boost/align/detail)
 
 ## License
 
