@@ -20,7 +20,8 @@ namespace ha {
 namespace alignment {
 
 //-----------------------------------------------------------------------------
-/* https://en.cppreference.com/w/cpp/named_req/Allocator
+/*
+ * https://en.cppreference.com/w/cpp/named_req/Allocator
  * https://en.cppreference.com/w/cpp/memory/allocator
  * https://github.com/boostorg/align/tree/develop/include/boost/align/detail
  */
@@ -34,7 +35,6 @@ struct aligned_allocator
     typedef std::true_type propagate_on_container_move_assignment;
     typedef std::true_type is_always_equal;
 
-    // rebind allocator to type U
     template <class U>
     struct rebind
     {
@@ -79,6 +79,7 @@ struct aligned_allocator
 #if defined(_WIN32)
         _aligned_free(p);
 #elif __APPLE__
+        ::free(p);
 #else
         std::free(p);
 #endif
