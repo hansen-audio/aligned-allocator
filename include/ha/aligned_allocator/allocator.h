@@ -23,6 +23,8 @@ struct aligned_allocator
     typedef T value_type;
     typedef size_t size_type;
     typedef ptrdiff_t difference_type;
+    typedef std::true_type propagate_on_container_move_assignment;
+    typedef std::true_type is_always_equal;
 
     // rebind allocator to type U
     template <class U>
