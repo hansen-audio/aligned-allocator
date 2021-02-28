@@ -28,4 +28,4 @@ jobs:
     - name: Google Test
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: ./$BUILD_TYPE/aligned-allocator_test
+      run: ${{github.workspace}}/build/$BUILD_TYPE/aligned-allocator_test
