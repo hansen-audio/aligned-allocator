@@ -49,6 +49,9 @@ struct aligned_allocator
 
     [[nodiscard]] T* allocate(std::size_t n)
     {
+        static_assert(BYTE_ALIGNMENT == 8 || BYTE_ALIGNMENT == 16 || BYTE_ALIGNMENT == 32 ||
+                      BYTE_ALIGNMENT == 64);
+
         if (n > std::numeric_limits<std::size_t>::max() / sizeof(T))
             throw std::bad_alloc();
 #if defined(_WIN32)
