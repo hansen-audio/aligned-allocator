@@ -54,20 +54,19 @@ struct aligned_allocator
 #if defined(_WIN32)
         if (auto p = static_cast<T*>(_aligned_malloc(n * sizeof(T), BYTE_ALIGNMENT)))
 #elif __APPLE__
-        void* p = nullptr;
-        if (::posix_memalign(&p, BYTE_ALIGNMENT, n * sizeof(T)) == 0)
+        void* pT = nullptr;
+        if (::posix_memalign(&pT, BYTE_ALIGNMENT, n * sizeof(T)) == 0)
 #else
         if (auto p = static_cast<T*>(std::aligned_alloc(BYTE_ALIGNMENT, n * sizeof(T))))
 #endif
         {
 #if defined(__APPLE__)
-            auto pT = static_cast<T*>(p);
-            report(pT, n);
-            return pT;
-#else
-            report(p, n);
-            return p;
+            auto p = static_cast<T*>(pT);
 #endif
+#if REPORT_ALLOCATIONS
+            report(p, n);
+#endif
+            return p;
         }
 
         throw std::bad_alloc();
@@ -75,7 +74,9 @@ struct aligned_allocator
 
     void deallocate(T* p, std::size_t n) noexcept
     {
+#if REPORT_ALLOCATIONS
         report(p, n, 0);
+#endif
 #if defined(_WIN32)
         _aligned_free(p);
 #elif __APPLE__

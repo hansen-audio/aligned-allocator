@@ -19,10 +19,17 @@ target_compile_features(aligned-allocator
         cxx_std_17
 )
 
+
 enable_testing()
 
 add_executable(aligned-allocator_test
     test/allocator_test.cpp
+)
+
+# Report allocations only when google testing
+target_compile_definitions(aligned-allocator_test 
+    PUBLIC 
+        "REPORT_ALLOCATIONS"
 )
 
 target_link_libraries(aligned-allocator_test
