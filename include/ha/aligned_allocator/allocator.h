@@ -9,7 +9,7 @@
 #include <vector>
 
 namespace ha {
-namespace memory {
+namespace alignment {
 
 //-----------------------------------------------------------------------------
 /* https://en.cppreference.com/w/cpp/named_req/Allocator
@@ -79,5 +79,5 @@ bool operator!=(const aligned_allocator<T, BYTE_ALIGNMENT>&,
 }
 
 //-----------------------------------------------------------------------------
-} // namespace memory
+} // namespace alignment
 } // namespace ha
