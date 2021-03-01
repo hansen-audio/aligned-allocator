@@ -28,4 +28,6 @@ jobs:
     - name: Google Test
       working-directory: ${{github.workspace}}/build
       shell: bash
-      run: GTEST_COLOR=1 ctest --verbose
+      # On windows ctest does not work.
+      # run: GTEST_COLOR=1 ctest --verbose
+      run: $BUILD_TYPE/aligned-allocator_test.exe
