@@ -38,3 +38,7 @@ target_link_libraries(aligned-allocator_test
         gtest
         gtest_main
 )
+
+add_test(NAME aligned-allocator_test 
+    COMMAND aligned-allocator_test
+)
