@@ -1,5 +1,5 @@
 # Aligned Allocator
-[![Cmake (Linux, macOS, Windows)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake.yml/badge.svg)](https://github.com/rehans/aligned-allocator/actions/workflows/cmake.yml)
+[![CMake (Linux, macOS, Windows)](https://github.com/hansen-audio/aligned-allocator/actions/workflows/cmake.yml/badge.svg)](https://github.com/hansen-audio/aligned-allocator/actions/workflows/cmake.yml)
 
 ## Motivation
 
