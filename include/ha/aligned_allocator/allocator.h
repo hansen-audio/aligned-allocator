@@ -16,8 +16,7 @@
 #include <cstdlib>
 #endif
 
-namespace ha {
-namespace alignment {
+namespace ha::alignment {
 
 //-----------------------------------------------------------------------------
 /*
@@ -111,5 +110,4 @@ bool operator!=(const aligned_allocator<T, BYTE_ALIGNMENT>&,
 }
 
 //-----------------------------------------------------------------------------
-} // namespace alignment
-} // namespace ha
+} // namespace ha::alignment
